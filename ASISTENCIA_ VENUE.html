@@ -307,7 +307,9 @@
       const record = match.record;
       document.getElementById('name').textContent = record.name || 'No registrado';
       document.getElementById('dealer').textContent = record.dealer || 'No registrado';
-      document.getElementById('team').textContent = record.team || 'No registrado';
+      document.getElementById('team').textContent = record.team === 'ROSA'
+        ? 'MAGENTA'
+        : (record.team || 'No registrado');
       result.classList.add('visible');
     });
 
