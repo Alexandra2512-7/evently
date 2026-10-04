@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Cotizaciones | Evently</title><style>
+:root{
+  --primary:#5b46e8;--primary2:#7b61ff;--ink:#171a3b;--muted:#69708b;--bg:#f7f7fc;
+  --card:#fff;--line:#e7e8f2;--lav:#efeaff;--shadow:0 16px 45px rgba(28,31,77,.12)
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;color:var(--ink);background:var(--bg)}
+a{text-decoration:none;color:inherit}button,input,select,textarea{font:inherit}button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:12px 5%;background:#fff;border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;font-weight:850;font-size:1.45rem}.logo{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,var(--primary),var(--primary2))}
+nav{display:flex;gap:25px}nav a.active,nav a:hover{color:var(--primary);font-weight:750}
+.wrap{width:min(1180px,90%);margin:auto}
+.hero{min-height:390px;display:flex;align-items:center;color:#fff;background:linear-gradient(90deg,rgba(14,10,44,.86),rgba(14,10,44,.22)),url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1900&q=85') center/cover}
+.hero-inner{width:min(1180px,90%);margin:auto}.hero h1{font-size:clamp(2.5rem,5vw,4.4rem);line-height:1;max-width:700px;margin:0 0 14px}.hero p{max-width:650px;font-size:1.08rem}
+.btn{border:0;border-radius:12px;padding:12px 18px;font-weight:750}.btn-primary{background:linear-gradient(135deg,var(--primary),var(--primary2));color:#fff}.btn-light{background:#fff;color:var(--ink)}.btn-outline{background:#fff;color:var(--primary);border:1px solid #cbc3ff}
+.hero-actions{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap}
+.section{padding:40px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:15px;margin-bottom:18px}.section h2{margin:0;font-size:1.8rem}.lead{color:var(--muted);margin:5px 0 0}
+.searchbar{display:grid;grid-template-columns:2fr 1fr auto;gap:10px;background:#fff;padding:12px;border-radius:17px;box-shadow:var(--shadow);margin-top:-28px;position:relative;z-index:3}.field{border:1px solid var(--line);border-radius:11px;padding:12px;display:flex;gap:8px;align-items:center}.field input,.field select{width:100%;border:0;outline:0;background:transparent}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.card{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 8px 22px rgba(24,27,60,.06)}.card img{width:100%;height:170px;object-fit:cover}.card-body{padding:15px}.row{display:flex;justify-content:space-between;align-items:center;gap:10px}.muted{color:var(--muted);font-size:.9rem}.badge{display:inline-block;padding:5px 9px;border-radius:999px;background:#f0edff;color:var(--primary);font-size:.77rem;font-weight:750}
+.small-btn{border:1px solid var(--line);background:#fff;border-radius:10px;padding:9px;font-weight:700}.small-btn.primary{background:var(--primary);color:#fff;border-color:var(--primary)}
+.page-head{padding:55px 0 25px}.page-head h1{font-size:2.5rem;margin:0 0 10px}.panel{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:0 10px 25px rgba(31,34,72,.06)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.full{grid-column:1/-1}.input{width:100%;border:1px solid var(--line);border-radius:11px;padding:11px;outline:none}.input:focus{border-color:#9e90ff;box-shadow:0 0 0 3px #eeeaff}
+.checkgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.check{display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:11px;padding:10px;background:#fff}
+.estimate{font-size:2.4rem;font-weight:850;margin:8px 0}.progress{height:10px;background:#eeeefa;border-radius:999px;overflow:hidden}.progress>div{height:100%;background:linear-gradient(90deg,var(--primary),#a288ff);width:0%}
+.chips{display:flex;gap:7px;flex-wrap:wrap;margin:12px 0}.chip{background:#f4f1ff;color:#513dd8;padding:7px 10px;border-radius:999px;font-size:.82rem}
+.quote-result{display:none;margin-top:16px;padding:14px;background:#f1fff8;border:1px solid #bdebd4;border-radius:12px}
+.summary-card{background:linear-gradient(135deg,#f0edff,#fff);border:1px solid #ddd6ff;border-radius:18px;padding:18px}
+.footer{background:#171a3b;color:#fff;padding:28px 5%;margin-top:40px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.footer small{opacity:.75}
+@media(max-width:900px){nav{display:none}.wrap{width:100%;padding:0 16px}.hero-inner{width:100%;padding:0 16px}.searchbar{grid-template-columns:1fr}.cards{grid-template-columns:repeat(2,1fr)}.grid2,.form-grid{grid-template-columns:1fr}.full{grid-column:auto}}
+@media(max-width:560px){.cards{grid-template-columns:1fr}.page-head h1{font-size:2rem}.hero h1{font-size:2.5rem}}
+</style></head>
+<body>
+<header class="topbar"><div class="brand"><div class="logo">✦</div>Evently</div><nav><a href="index.html">Inicio</a><a href="index.html#proveedores">Proveedores</a><a href="planificador.html">Planificador</a><a class="active" href="cotizaciones.html">Cotizaciones</a></nav></header>
+<main class="wrap">
+<section class="page-head"><a href="index.html" class="muted">← Volver al inicio</a><h1>Solicitar cotización</h1><p class="lead">Envía tu requerimiento de forma ordenada y genera un resumen de tu solicitud.</p></section>
+<section class="grid2">
+<div class="panel"><h2>Datos de contacto</h2><div class="form-grid">
+<label>Nombre<input class="input" id="name" placeholder="Tu nombre"></label>
+<label>Correo<input class="input" id="email" type="email" placeholder="correo@ejemplo.com"></label>
+<label>Fecha del evento<input class="input" id="date" type="date"></label>
+<label>Invitados<input class="input" id="guests" type="number" value="80"></label>
+<label class="full">Proveedor<input class="input" id="provider" placeholder="Selecciona o escribe un proveedor"></label>
+<label class="full">Detalles<textarea class="input" id="details" rows="5" placeholder="Describe qué necesitas, cantidades, horario u otros detalles"></textarea></label>
+<div class="full" style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn btn-primary" onclick="submitQuote()">Generar solicitud</button><button class="btn btn-outline" onclick="downloadQuote()">Descargar resumen</button></div>
+</div><div class="quote-result" id="result"></div></div>
+<div>
+<div class="summary-card"><h2>Resumen del plan</h2><div id="planSummary" class="muted">No hay un plan previo. Puedes completar la cotización directamente.</div></div>
+<div class="panel" style="margin-top:18px"><h2>¿Cómo funciona?</h2><p class="muted">1. Completa tus datos.<br>2. Indica el proveedor o servicio.<br>3. Describe tu necesidad.<br>4. Genera y descarga el resumen de la solicitud.</p><a class="btn btn-outline" href="planificador.html">Ir al planificador</a></div>
+</div>
+</section>
+</main>
+<footer class="footer"><div><strong>Evently</strong></div><small>Centraliza tus solicitudes en un solo lugar.</small></footer>
+<script>
+const params=new URLSearchParams(location.search);if(params.get('proveedor'))document.getElementById('provider').value=params.get('proveedor');
+const plan=JSON.parse(localStorage.getItem('eventlyPlan')||'null');
+if(plan){document.getElementById('guests').value=plan.guests;document.getElementById('details').value=`Evento: ${plan.type}. Presupuesto estimado: ${plan.estimate}.`;document.getElementById('planSummary').innerHTML=`<strong>${plan.type}</strong><br>Invitados: ${plan.guests}<br>Estimación: ${plan.estimate}`;}
+function submitQuote(){const n=document.getElementById('name').value.trim(),e=document.getElementById('email').value.trim();if(!n||!e){alert('Completa nombre y correo.');return}const r=document.getElementById('result');r.style.display='block';r.innerHTML=`✅ <strong>Solicitud generada correctamente.</strong><br>Hola ${n}, tu solicitud de cotización quedó preparada para ${document.getElementById('provider').value||'el servicio seleccionado'}.`}
+function downloadQuote(){const t=`EVENTLY - SOLICITUD DE COTIZACIÓN
+Nombre: ${document.getElementById('name').value}
+Correo: ${document.getElementById('email').value}
+Fecha: ${document.getElementById('date').value}
+Invitados: ${document.getElementById('guests').value}
+Proveedor: ${document.getElementById('provider').value}
+Detalles: ${document.getElementById('details').value}`;const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([t],{type:'text/plain'}));a.download='solicitud_evently.txt';a.click();URL.revokeObjectURL(a.href)}
+</script></body></html>
