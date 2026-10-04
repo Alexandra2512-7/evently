@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Evently</title><style>
+:root{
+  --primary:#5b46e8;--primary2:#7b61ff;--ink:#171a3b;--muted:#69708b;--bg:#f7f7fc;
+  --card:#fff;--line:#e7e8f2;--lav:#efeaff;--shadow:0 16px 45px rgba(28,31,77,.12)
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;color:var(--ink);background:var(--bg)}
+a{text-decoration:none;color:inherit}button,input,select,textarea{font:inherit}button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:12px 5%;background:#fff;border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;font-weight:850;font-size:1.45rem}.logo{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,var(--primary),var(--primary2))}
+nav{display:flex;gap:25px}nav a.active,nav a:hover{color:var(--primary);font-weight:750}
+.wrap{width:min(1180px,90%);margin:auto}
+.hero{min-height:390px;display:flex;align-items:center;color:#fff;background:linear-gradient(90deg,rgba(14,10,44,.86),rgba(14,10,44,.22)),url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1900&q=85') center/cover}
+.hero-inner{width:min(1180px,90%);margin:auto}.hero h1{font-size:clamp(2.5rem,5vw,4.4rem);line-height:1;max-width:700px;margin:0 0 14px}.hero p{max-width:650px;font-size:1.08rem}
+.btn{border:0;border-radius:12px;padding:12px 18px;font-weight:750}.btn-primary{background:linear-gradient(135deg,var(--primary),var(--primary2));color:#fff}.btn-light{background:#fff;color:var(--ink)}.btn-outline{background:#fff;color:var(--primary);border:1px solid #cbc3ff}
+.hero-actions{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap}
+.section{padding:40px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:15px;margin-bottom:18px}.section h2{margin:0;font-size:1.8rem}.lead{color:var(--muted);margin:5px 0 0}
+.searchbar{display:grid;grid-template-columns:2fr 1fr auto;gap:10px;background:#fff;padding:12px;border-radius:17px;box-shadow:var(--shadow);margin-top:-28px;position:relative;z-index:3}.field{border:1px solid var(--line);border-radius:11px;padding:12px;display:flex;gap:8px;align-items:center}.field input,.field select{width:100%;border:0;outline:0;background:transparent}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.card{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 8px 22px rgba(24,27,60,.06)}.card img{width:100%;height:170px;object-fit:cover}.card-body{padding:15px}.row{display:flex;justify-content:space-between;align-items:center;gap:10px}.muted{color:var(--muted);font-size:.9rem}.badge{display:inline-block;padding:5px 9px;border-radius:999px;background:#f0edff;color:var(--primary);font-size:.77rem;font-weight:750}
+.small-btn{border:1px solid var(--line);background:#fff;border-radius:10px;padding:9px;font-weight:700}.small-btn.primary{background:var(--primary);color:#fff;border-color:var(--primary)}
+.page-head{padding:55px 0 25px}.page-head h1{font-size:2.5rem;margin:0 0 10px}.panel{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:0 10px 25px rgba(31,34,72,.06)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.full{grid-column:1/-1}.input{width:100%;border:1px solid var(--line);border-radius:11px;padding:11px;outline:none}.input:focus{border-color:#9e90ff;box-shadow:0 0 0 3px #eeeaff}
+.checkgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.check{display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:11px;padding:10px;background:#fff}
+.estimate{font-size:2.4rem;font-weight:850;margin:8px 0}.progress{height:10px;background:#eeeefa;border-radius:999px;overflow:hidden}.progress>div{height:100%;background:linear-gradient(90deg,var(--primary),#a288ff);width:0%}
+.chips{display:flex;gap:7px;flex-wrap:wrap;margin:12px 0}.chip{background:#f4f1ff;color:#513dd8;padding:7px 10px;border-radius:999px;font-size:.82rem}
+.quote-result{display:none;margin-top:16px;padding:14px;background:#f1fff8;border:1px solid #bdebd4;border-radius:12px}
+.summary-card{background:linear-gradient(135deg,#f0edff,#fff);border:1px solid #ddd6ff;border-radius:18px;padding:18px}
+.footer{background:#171a3b;color:#fff;padding:28px 5%;margin-top:40px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.footer small{opacity:.75}
+@media(max-width:900px){nav{display:none}.wrap{width:100%;padding:0 16px}.hero-inner{width:100%;padding:0 16px}.searchbar{grid-template-columns:1fr}.cards{grid-template-columns:repeat(2,1fr)}.grid2,.form-grid{grid-template-columns:1fr}.full{grid-column:auto}}
+@media(max-width:560px){.cards{grid-template-columns:1fr}.page-head h1{font-size:2rem}.hero h1{font-size:2.5rem}}
+</style></head>
+<body>
+<header class="topbar"><div class="brand"><div class="logo">✦</div>Evently</div><nav><a class="active" href="index.html">Inicio</a><a href="#proveedores">Proveedores</a><a href="planificador.html">Planificador</a><a href="cotizaciones.html">Cotizaciones</a></nav></header>
+<section class="hero"><div class="hero-inner"><h1>Todo para tu evento,<br>en un solo lugar</h1><p>Encuentra y compara proveedores, planifica tu presupuesto y solicita cotizaciones desde una experiencia simple y organizada.</p><div class="hero-actions"><a class="btn btn-primary" href="#proveedores">Explorar proveedores</a><a class="btn btn-light" href="planificador.html">Planificar mi evento</a><a class="btn btn-light" href="cotizaciones.html">Solicitar cotización</a></div></div></section>
+<main class="wrap">
+<div class="searchbar"><div class="field">🔎 <input id="q" placeholder="¿Qué proveedor necesitas?"></div><div class="field">📍 <select id="city"><option value="">Todas las ciudades</option><option>Lima</option><option>Arequipa</option><option>Cusco</option></select></div><button class="btn btn-primary" onclick="searchProviders()">Buscar</button></div>
+<section class="section" id="proveedores"><div class="section-head"><div><h2>Proveedores destacados</h2><p class="lead">Explora opciones y pasa a cotizar cuando encuentres la indicada.</p></div></div><div class="cards" id="cards"></div></section>
+</main>
+<footer class="footer"><div><strong>Evently</strong><br><small>Descubre experiencias, no solo eventos.</small></div><small>Prototipo funcional para fines académicos · 2026</small></footer>
+<script>
+const providers=[
+{id:1,name:'Terraza Los Olivos',cat:'Lugares',city:'Lima',rating:4.8,reviews:120,priceText:'Desde S/ 2,500',img:'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1000&q=80'},
+{id:2,name:'Sabor & Eventos',cat:'Catering',city:'Lima',rating:4.6,reviews:98,priceText:'Desde S/ 80 p/p',img:'https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=1000&q=80'},
+{id:3,name:'Moments Studio',cat:'Fotografía',city:'Lima',rating:4.9,reviews:75,priceText:'Desde S/ 1,200',img:'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=80'},
+{id:4,name:'Ritmo Live',cat:'Música',city:'Lima',rating:4.7,reviews:88,priceText:'Desde S/ 1,500',img:'https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1000&q=80'},
+{id:5,name:'Detalles Mágicos',cat:'Decoración',city:'Arequipa',rating:4.8,reviews:54,priceText:'Desde S/ 850',img:'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=1000&q=80'},
+{id:6,name:'Casa Andina Eventos',cat:'Alojamiento',city:'Cusco',rating:4.7,reviews:61,priceText:'Desde S/ 900',img:'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1000&q=80'}
+];
+
+function render(list){document.getElementById('cards').innerHTML=list.map(p=>`<article class="card"><img src="${p.img}" alt="${p.name}"><div class="card-body"><div class="row"><h3 style="margin:0">${p.name}</h3><span>⭐ ${p.rating}</span></div><p><span class="badge">${p.cat}</span></p><p class="muted">📍 ${p.city} · ${p.reviews} reseñas</p><div class="row"><strong>${p.priceText}</strong><a class="small-btn primary" href="cotizaciones.html?proveedor=${encodeURIComponent(p.name)}">Cotizar</a></div></div></article>`).join('')}
+function searchProviders(){const q=document.getElementById('q').value.toLowerCase(),city=document.getElementById('city').value;render(providers.filter(p=>(!q||(p.name+' '+p.cat).toLowerCase().includes(q))&&(!city||p.city===city)))}
+render(providers);
+</script></body></html>
